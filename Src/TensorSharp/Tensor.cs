@@ -15,5 +15,10 @@
         }
 
         public int NoDimensions { get { return this.dimensions.Length; } }
+
+        public int GetDimensionLength(int ndim)
+        {
+            return this.dimensions[ndim];
+        }
     }
 }
