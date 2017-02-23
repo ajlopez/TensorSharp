@@ -23,5 +23,13 @@
             Assert.AreEqual(4, tensor.GetDimensionLength(1));
             Assert.AreEqual(5, tensor.GetDimensionLength(2));
         }
+
+        [TestMethod]
+        public void GetDefaultValue()
+        {
+            Tensor tensor = new Tensor(3, 4, 5);
+
+            Assert.AreEqual(0, tensor.GetValue(1, 2, 3));
+        }
     }
 }

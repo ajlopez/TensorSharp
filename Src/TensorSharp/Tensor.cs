@@ -20,5 +20,10 @@
         {
             return this.dimensions[ndim];
         }
+
+        public int GetValue(params int[] coordinates)
+        {
+            return 0;
+        }
     }
 }
