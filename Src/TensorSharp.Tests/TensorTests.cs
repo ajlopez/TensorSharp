@@ -31,5 +31,21 @@
 
             Assert.AreEqual(0, tensor.GetValue(1, 2, 3));
         }
+
+        [TestMethod]
+        public void NegativeCoordinate()
+        {
+            Tensor tensor = new Tensor(3, 4, 5);
+
+            try
+            {
+                Assert.AreEqual(0, tensor.GetValue(1, -2, 3));
+                Assert.Fail();
+            }
+            catch (TensorException ex)
+            {
+                Assert.AreEqual("Invalid coordinate", ex.Message);
+            }
+        }
     }
 }
