@@ -14,7 +14,7 @@
             this.dimensions = (int[])dimensions.Clone();
         }
 
-        public int NoDimensions { get { return this.dimensions.Length; } }
+        public int Rank { get { return this.dimensions.Length; } }
 
         public int GetDimensionLength(int ndim)
         {

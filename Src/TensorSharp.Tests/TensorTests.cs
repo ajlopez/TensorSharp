@@ -11,7 +11,7 @@
         {
             Tensor tensor = new Tensor(3, 4, 5);
 
-            Assert.AreEqual(3, tensor.NoDimensions);
+            Assert.AreEqual(3, tensor.Rank);
         }
 
         [TestMethod]
