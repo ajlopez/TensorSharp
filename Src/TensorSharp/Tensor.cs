@@ -28,5 +28,10 @@
 
             return default(T);
         }
+
+        public void SetValue(T value, params int[] coordinates)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

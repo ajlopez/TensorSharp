@@ -47,5 +47,15 @@
                 Assert.AreEqual("Invalid coordinate", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void SetAndGetValue()
+        {
+            Tensor<int> tensor = new Tensor<int>(3, 4, 5);
+
+            tensor.SetValue(42, 2, 3, 4);
+            Assert.AreEqual(0, tensor.GetValue(1, 2, 3));
+            Assert.AreEqual(42, tensor.GetValue(2, 3, 4));
+        }
     }
 }
