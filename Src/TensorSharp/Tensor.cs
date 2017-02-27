@@ -31,6 +31,9 @@
 
         public void SetValue(T value, params int[] coordinates)
         {
+            if (coordinates.Any(c => c < 0))
+                throw new TensorException("Invalid coordinate");
+
             throw new NotImplementedException();
         }
     }

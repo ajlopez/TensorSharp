@@ -33,7 +33,7 @@
         }
 
         [TestMethod]
-        public void NegativeCoordinate()
+        public void NegativeCoordinateInGetValue()
         {
             Tensor<int> tensor = new Tensor<int>(3, 4, 5);
 
@@ -47,6 +47,23 @@
                 Assert.AreEqual("Invalid coordinate", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void NegativeCoordinateInSetValue()
+        {
+            Tensor<int> tensor = new Tensor<int>(3, 4, 5);
+
+            try
+            {
+                tensor.SetValue(1, -2, 3);
+                Assert.Fail();
+            }
+            catch (TensorException ex)
+            {
+                Assert.AreEqual("Invalid coordinate", ex.Message);
+            }
+        }
+
 
         [TestMethod]
         public void SetAndGetValue()
