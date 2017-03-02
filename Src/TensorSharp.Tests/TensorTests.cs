@@ -64,15 +64,21 @@
             }
         }
 
-
         [TestMethod]
-        public void SetAndGetValue()
+        public void SetAndGetValues()
         {
             Tensor<int> tensor = new Tensor<int>(3, 4, 5);
 
             tensor.SetValue(42, 2, 3, 4);
+            tensor.SetValue(1, 1, 0, 0);
+            tensor.SetValue(2, 1, 1, 0);
+            tensor.SetValue(3, 1, 1, 1);
+
             Assert.AreEqual(0, tensor.GetValue(1, 2, 3));
             Assert.AreEqual(42, tensor.GetValue(2, 3, 4));
+            Assert.AreEqual(1, tensor.GetValue(1, 0, 0));
+            Assert.AreEqual(2, tensor.GetValue(1, 1, 0));
+            Assert.AreEqual(3, tensor.GetValue(1, 1, 1));
         }
     }
 }
