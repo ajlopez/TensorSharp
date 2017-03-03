@@ -52,8 +52,15 @@
 
         private int CalculatePosition(int[] coordinates)
         {
-            int position = coordinates[0];
+            int multiplier = 1;
+            int position = 0;
 
+            for (int k = 0; k < this.dimensions.Length; k++)
+            {
+                position += multiplier * coordinates[k];
+                multiplier *= this.dimensions[k];
+            }
+            
             return position;
         }
     }
