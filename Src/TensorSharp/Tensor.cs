@@ -10,6 +10,7 @@
         private int[] dimensions;
         private T[] values;
         private int size;
+        private bool seal;
 
         public Tensor(params int[] dimensions)
         {
@@ -22,6 +23,8 @@
         }
 
         public int Rank { get { return this.dimensions.Length; } }
+
+        public bool Sealed { get { return this.seal; } }
 
         public int GetDimensionLength(int ndim)
         {
@@ -48,6 +51,11 @@
                 this.values = new T[this.size];
 
             this.values[this.CalculatePosition(coordinates)] = value;
+        }
+
+        public void Seal()
+        {
+            this.seal = true;
         }
 
         private int CalculatePosition(int[] coordinates)

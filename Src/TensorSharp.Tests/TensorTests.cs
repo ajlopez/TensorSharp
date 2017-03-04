@@ -80,5 +80,15 @@
             Assert.AreEqual(2, tensor.GetValue(1, 1, 0));
             Assert.AreEqual(3, tensor.GetValue(1, 1, 1));
         }
+
+        [TestMethod]
+        public void SealTensor()
+        {
+            Tensor<int> tensor = new Tensor<int>(3, 4, 5);
+
+            Assert.IsFalse(tensor.Sealed);
+            tensor.Seal();
+            Assert.IsTrue(tensor.Sealed);
+        }
     }
 }
