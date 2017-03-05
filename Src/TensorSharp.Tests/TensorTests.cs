@@ -90,5 +90,23 @@
             tensor.Seal();
             Assert.IsTrue(tensor.Sealed);
         }
+
+        [TestMethod]
+        public void CannotSetValueInSealedTensor()
+        {
+            Tensor<int> tensor = new Tensor<int>(3, 4, 5);
+
+            tensor.Seal();
+
+            try
+            {
+                tensor.SetValue(42, 2, 3, 4);
+                Assert.Fail();
+            }
+            catch (TensorException ex)
+            {
+                Assert.AreEqual("Tensor is sealed", ex.Message);
+            }
+        }
     }
 }

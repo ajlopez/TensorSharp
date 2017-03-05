@@ -47,6 +47,9 @@
             if (coordinates.Any(c => c < 0))
                 throw new TensorException("Invalid coordinate");
 
+            if (this.seal)
+                throw new TensorException("Tensor is sealed");
+
             if (this.values == null)
                 this.values = new T[this.size];
 
