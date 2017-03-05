@@ -82,6 +82,14 @@
         }
 
         [TestMethod]
+        public void CreateTensorWithoutDimensions()
+        {
+            Tensor<int> tensor = new Tensor<int>();
+
+            Assert.AreEqual(0, tensor.Rank);
+        }
+
+        [TestMethod]
         public void SealTensor()
         {
             Tensor<int> tensor = new Tensor<int>(3, 4, 5);
