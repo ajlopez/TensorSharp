@@ -90,6 +90,16 @@
         }
 
         [TestMethod]
+        public void SetGetValueInTensorWithoutDimensions()
+        {
+            Tensor<int> tensor = new Tensor<int>();
+
+            tensor.SetValue(42);
+
+            Assert.AreEqual(42, tensor.GetValue());
+        }
+
+        [TestMethod]
         public void SealTensor()
         {
             Tensor<int> tensor = new Tensor<int>(3, 4, 5);
