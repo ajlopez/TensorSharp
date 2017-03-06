@@ -61,6 +61,15 @@
             this.seal = true;
         }
 
+        public Tensor<T> Add(Tensor<T> tensor)
+        {
+            Tensor<int> result = new Tensor<int>();
+
+            result.SetValue(Convert.ToInt32(this.GetValue()) + Convert.ToInt32(tensor.GetValue()));
+
+            return result as Tensor<T>;
+        }
+
         private int CalculatePosition(int[] coordinates)
         {
             int multiplier = 1;

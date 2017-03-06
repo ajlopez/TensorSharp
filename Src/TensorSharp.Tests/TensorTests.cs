@@ -126,5 +126,21 @@
                 Assert.AreEqual("Tensor is sealed", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void AddSimpleIntegerValues()
+        {
+            Tensor<int> t1 = new Tensor<int>();
+            Tensor<int> t2 = new Tensor<int>();
+
+            t1.SetValue(1);
+            t2.SetValue(41);
+
+            Tensor<int> result = t1.Add(t2);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Rank);
+            Assert.AreEqual(42, result.GetValue());
+        }
     }
 }
