@@ -136,7 +136,7 @@
             t1.SetValue(1);
             t2.SetValue(41);
 
-            Tensor<int> result = t1.Add(t2);
+            Tensor<int> result = t1.Add<int>(t2);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(0, result.Rank);

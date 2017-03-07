@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using TensorSharp.Operations;
 
     public class Tensor<T>
     {
@@ -61,13 +62,13 @@
             this.seal = true;
         }
 
-        public Tensor<T> Add(Tensor<T> tensor)
+        public Tensor<S> Add<S>(Tensor<T> tensor)
         {
-            Tensor<int> result = new Tensor<int>();
+            var operation = new AddIntegerIntegerOperation();
 
-            result.SetValue(Convert.ToInt32(this.GetValue()) + Convert.ToInt32(tensor.GetValue()));
+            Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
 
-            return result as Tensor<T>;
+            return result as Tensor<S>;
         }
 
         private int CalculatePosition(int[] coordinates)
