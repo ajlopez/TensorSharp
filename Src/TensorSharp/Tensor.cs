@@ -71,6 +71,15 @@
             return result as Tensor<S>;
         }
 
+        public Tensor<S> Subtract<S>(Tensor<T> tensor)
+        {
+            var operation = new SubtractIntegerIntegerOperation();
+
+            Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
+
+            return result as Tensor<S>;
+        }
+
         private int CalculatePosition(int[] coordinates)
         {
             int multiplier = 1;

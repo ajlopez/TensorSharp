@@ -142,5 +142,21 @@
             Assert.AreEqual(0, result.Rank);
             Assert.AreEqual(42, result.GetValue());
         }
+
+        [TestMethod]
+        public void SubtractSimpleIntegerValues()
+        {
+            Tensor<int> t1 = new Tensor<int>();
+            Tensor<int> t2 = new Tensor<int>();
+
+            t1.SetValue(43);
+            t2.SetValue(1);
+
+            Tensor<int> result = t1.Subtract<int>(t2);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Rank);
+            Assert.AreEqual(42, result.GetValue());
+        }
     }
 }
