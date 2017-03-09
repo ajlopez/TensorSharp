@@ -158,5 +158,21 @@
             Assert.AreEqual(0, result.Rank);
             Assert.AreEqual(42, result.GetValue());
         }
+
+        [TestMethod]
+        public void MultiplySimpleIntegerValues()
+        {
+            Tensor<int> t1 = new Tensor<int>();
+            Tensor<int> t2 = new Tensor<int>();
+
+            t1.SetValue(21);
+            t2.SetValue(2);
+
+            Tensor<int> result = t1.Multiply<int>(t2);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Rank);
+            Assert.AreEqual(42, result.GetValue());
+        }
     }
 }

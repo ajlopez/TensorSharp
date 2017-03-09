@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operations\AddIntegerIntegerOperation.cs" />
+    <Compile Include="Operations\MultiplyIntegerIntegerOperation.cs" />
     <Compile Include="Operations\SubtractIntegerIntegerOperation.cs" />
     <Compile Include="Operations\IBinaryOperation.cs" />
     <Compile Include="Operations\IUnaryOperation.cs" />
