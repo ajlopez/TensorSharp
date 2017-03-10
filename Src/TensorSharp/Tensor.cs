@@ -89,6 +89,15 @@
             return result as Tensor<S>;
         }
 
+        public Tensor<S> Divide<S>(Tensor<T> tensor)
+        {
+            var operation = new DivideIntegerIntegerOperation();
+
+            Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
+
+            return result as Tensor<S>;
+        }
+
         private int CalculatePosition(int[] coordinates)
         {
             int multiplier = 1;
