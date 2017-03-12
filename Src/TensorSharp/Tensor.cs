@@ -87,11 +87,25 @@
 
         public Tensor<S> Subtract<S>(Tensor<T> tensor)
         {
-            var operation = new SubtractIntegerIntegerOperation();
+            if (typeof(T) == typeof(int) && typeof(S) == typeof(int))
+            {
+                var operation = new SubtractIntegerIntegerOperation();
 
-            Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
+                Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
 
-            return result as Tensor<S>;
+                return result as Tensor<S>;
+            }
+
+            if (typeof(T) == typeof(double) && typeof(S) == typeof(double))
+            {
+                var operation = new SubtractDoubleDoubleOperation();
+
+                Tensor<double> result = operation.Evaluate(this as Tensor<double>, tensor as Tensor<double>);
+
+                return result as Tensor<S>;
+            }
+
+            return null;
         }
 
         public Tensor<S> Multiply<S>(Tensor<T> tensor)

@@ -176,6 +176,22 @@
         }
 
         [TestMethod]
+        public void SubtractSimpleDoubleValues()
+        {
+            Tensor<double> t1 = new Tensor<double>();
+            Tensor<double> t2 = new Tensor<double>();
+
+            t1.SetValue(43.2);
+            t2.SetValue(1.2);
+
+            Tensor<double> result = t1.Subtract<double>(t2);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Rank);
+            Assert.AreEqual(42.0, result.GetValue());
+        }
+
+        [TestMethod]
         public void MultiplySimpleIntegerValues()
         {
             Tensor<int> t1 = new Tensor<int>();
