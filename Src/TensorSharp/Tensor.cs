@@ -133,11 +133,25 @@
 
         public Tensor<S> Divide<S>(Tensor<T> tensor)
         {
-            var operation = new DivideIntegerIntegerOperation();
+            if (typeof(T) == typeof(int) && typeof(S) == typeof(int))
+            {
+                var operation = new DivideIntegerIntegerOperation();
 
-            Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
+                Tensor<int> result = operation.Evaluate(this as Tensor<int>, tensor as Tensor<int>);
 
-            return result as Tensor<S>;
+                return result as Tensor<S>;
+            }
+
+            if (typeof(T) == typeof(double) && typeof(S) == typeof(double))
+            {
+                var operation = new DivideDoubleDoubleOperation();
+
+                Tensor<double> result = operation.Evaluate(this as Tensor<double>, tensor as Tensor<double>);
+
+                return result as Tensor<S>;
+            }
+
+            return null;
         }
 
         private int CalculatePosition(int[] coordinates)

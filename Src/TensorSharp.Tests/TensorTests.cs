@@ -238,5 +238,21 @@
             Assert.AreEqual(0, result.Rank);
             Assert.AreEqual(42, result.GetValue());
         }
+
+        [TestMethod]
+        public void DivideSimpleDoubleValues()
+        {
+            Tensor<double> t1 = new Tensor<double>();
+            Tensor<double> t2 = new Tensor<double>();
+
+            t1.SetValue(84.0);
+            t2.SetValue(2.0);
+
+            Tensor<double> result = t1.Divide<double>(t2);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Rank);
+            Assert.AreEqual(42.0, result.GetValue());
+        }
     }
 }
