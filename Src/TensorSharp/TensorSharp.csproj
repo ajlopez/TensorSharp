@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Operations\AddIntegerIntegerOperation.cs" />
     <Compile Include="Operations\AddDoubleDoubleOperation.cs" />
+    <Compile Include="Operations\NegateIntegerOperation.cs" />
     <Compile Include="Operations\DivideDoubleDoubleOperation.cs" />
     <Compile Include="Operations\MultiplyDoubleDoubleOperation.cs" />
     <Compile Include="Operations\SubtractDoubleDoubleOperation.cs" />

@@ -254,5 +254,19 @@
             Assert.AreEqual(0, result.Rank);
             Assert.AreEqual(42.0, result.GetValue());
         }
+
+        [TestMethod]
+        public void NegateSimpleIntegerValue()
+        {
+            Tensor<int> t1 = new Tensor<int>();
+
+            t1.SetValue(-42);
+
+            Tensor<int> result = t1.Negate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Rank);
+            Assert.AreEqual(42, result.GetValue());
+        }
     }
 }

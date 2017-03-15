@@ -5,15 +5,14 @@
     using System.Linq;
     using System.Text;
 
-    public class AddIntegerIntegerOperation : IBinaryOperation<int, int, int>
+    public class NegateIntegerOperation : IUnaryOperation<int, int>
     {
-        public Tensor<int> Evaluate(Tensor<int> tensor1, Tensor<int> tensor2)
+        public Tensor<int> Evaluate(Tensor<int> tensor)
         {
             Tensor<int> result = new Tensor<int>();
 
-            result.SetValue(tensor1.GetValue() + tensor2.GetValue());
+            result.SetValue(-tensor.GetValue());
 
-            return result;
             return result;
         }
     }
