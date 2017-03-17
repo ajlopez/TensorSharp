@@ -165,6 +165,15 @@
                 return result as Tensor<T>;
             }
 
+            if (typeof(T) == typeof(double))
+            {
+                var operation = new NegateDoubleOperation();
+
+                Tensor<double> result = operation.Evaluate(this as Tensor<double>);
+
+                return result as Tensor<T>;
+            }
+
             return null;
         }
 
