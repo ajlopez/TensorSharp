@@ -27,6 +27,13 @@
 
         public bool Sealed { get { return this.seal; } }
 
+        public Tensor<T> CloneWithNewValues(T[] newValues)
+        {
+            Tensor<T> tensor = new Tensor<T>(this.dimensions);
+            tensor.values = newValues;
+            return tensor;
+        }
+
         public int GetDimensionLength(int ndim)
         {
             return this.dimensions[ndim];

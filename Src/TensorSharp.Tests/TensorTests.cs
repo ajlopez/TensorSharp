@@ -82,6 +82,23 @@
         }
 
         [TestMethod]
+        public void CloneTensorWithNewValues()
+        {
+            Tensor<int> tensor = new Tensor<int>(2, 3);
+
+            Tensor<int> newTensor = tensor.CloneWithNewValues(new int[] { 1, 2, 3, 4, 5, 6 });
+
+            Assert.IsNotNull(newTensor);
+            Assert.AreEqual(2, newTensor.Rank);
+            Assert.AreEqual(1, newTensor.GetValue(0, 0));
+            Assert.AreEqual(2, newTensor.GetValue(1, 0));
+            Assert.AreEqual(3, newTensor.GetValue(0, 1));
+            Assert.AreEqual(4, newTensor.GetValue(1, 1));
+            Assert.AreEqual(5, newTensor.GetValue(0, 2));
+            Assert.AreEqual(6, newTensor.GetValue(1, 2));
+        }
+
+        [TestMethod]
         public void CreateTensorWithoutDimensions()
         {
             Tensor<int> tensor = new Tensor<int>();
