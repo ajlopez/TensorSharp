@@ -9,11 +9,14 @@
     {
         public Tensor<int> Evaluate(Tensor<int> tensor)
         {
-            Tensor<int> result = new Tensor<int>();
+            int[] values = tensor.GetValues();
+            int l = values.Length;
+            int[] newvalues = new int[l];
 
-            result.SetValue(-tensor.GetValue());
+            for (int k = 0; k < l; k++)
+                newvalues[k] = -values[k];
 
-            return result;
+            return tensor.CloneWithNewValues(newvalues);
         }
     }
 }

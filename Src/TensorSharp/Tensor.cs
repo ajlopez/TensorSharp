@@ -184,6 +184,11 @@
             return null;
         }
 
+        internal T[] GetValues()
+        {
+            return this.values;
+        }
+
         private int CalculatePosition(int[] coordinates)
         {
             int multiplier = 1;
