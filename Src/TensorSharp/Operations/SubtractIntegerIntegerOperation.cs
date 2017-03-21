@@ -9,11 +9,17 @@
     {
         public Tensor<int> Evaluate(Tensor<int> tensor1, Tensor<int> tensor2)
         {
-            Tensor<int> result = new Tensor<int>();
+            int[] values1 = tensor1.GetValues();
+            int l = values1.Length;
 
-            result.SetValue(tensor1.GetValue() - tensor2.GetValue());
+            int[] values2 = tensor2.GetValues();
 
-            return result;
+            int[] newvalues = new int[l];
+
+            for (int k = 0; k < l; k++)
+                newvalues[k] = values1[k] - values2[k];
+
+            return tensor1.CloneWithNewValues(newvalues);
         }
     }
 }
