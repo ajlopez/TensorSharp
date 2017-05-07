@@ -301,7 +301,7 @@
         }
 
         [TestMethod]
-        public void NegateIntegersValue()
+        public void NegateIntegerValues()
         {
             Tensor<int> t1 = new Tensor<int>(2, 2);
 
@@ -318,6 +318,26 @@
             Assert.AreEqual(-1, result.GetValue(0, 1));
             Assert.AreEqual(-2, result.GetValue(1, 0));
             Assert.AreEqual(-3, result.GetValue(1, 1));
+        }
+
+        [TestMethod]
+        public void NegateDoubleValues()
+        {
+            Tensor<double> t1 = new Tensor<double>(2, 2);
+
+            t1.SetValue(42.0, 0, 0);
+            t1.SetValue(1.0, 0, 1);
+            t1.SetValue(2.0, 1, 0);
+            t1.SetValue(3.0, 1, 1);
+
+            Tensor<double> result = t1.Negate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Rank);
+            Assert.AreEqual(-42.0, result.GetValue(0, 0));
+            Assert.AreEqual(-1.0, result.GetValue(0, 1));
+            Assert.AreEqual(-2.0, result.GetValue(1, 0));
+            Assert.AreEqual(-3.0, result.GetValue(1, 1));
         }
     }
 }
