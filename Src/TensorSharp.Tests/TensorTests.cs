@@ -1,6 +1,7 @@
 ﻿namespace TensorSharp.Tests
 {
     using System;
+    using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -12,6 +13,8 @@
             Tensor<int> tensor = new Tensor<int>(3, 4, 5);
 
             Assert.AreEqual(3, tensor.Rank);
+            Assert.IsNotNull(tensor.Shape);
+            Assert.IsTrue(tensor.Shape.SequenceEqual(new int[] { 3, 4, 5 }));
         }
 
         [TestMethod]
@@ -90,6 +93,7 @@
 
             Assert.IsNotNull(newTensor);
             Assert.AreEqual(2, newTensor.Rank);
+            Assert.IsTrue(newTensor.Shape.SequenceEqual(new int[] { 2, 3 }));
             Assert.AreEqual(1, newTensor.GetValue(0, 0));
             Assert.AreEqual(2, newTensor.GetValue(1, 0));
             Assert.AreEqual(3, newTensor.GetValue(0, 1));
@@ -104,6 +108,7 @@
             Tensor<int> tensor = new Tensor<int>();
 
             Assert.AreEqual(0, tensor.Rank);
+            Assert.IsTrue(tensor.Shape.SequenceEqual(new int[] { }));
         }
 
         [TestMethod]
@@ -114,6 +119,7 @@
             tensor.SetValue(42);
 
             Assert.AreEqual(42, tensor.GetValue());
+            Assert.IsTrue(tensor.Shape.SequenceEqual(new int[] { }));
         }
 
         [TestMethod]

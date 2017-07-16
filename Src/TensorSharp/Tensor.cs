@@ -25,6 +25,8 @@
 
         public int Rank { get { return this.dimensions.Length; } }
 
+        public int[] Shape { get { return this.dimensions; } }
+
         public bool Sealed { get { return this.seal; } }
 
         public Tensor<T> CloneWithNewValues(T[] newValues)
