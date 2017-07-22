@@ -4,12 +4,12 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class ValueTests
+    public class SingleValueTests
     {
         [TestMethod]
         public void CreateIntegerValue()
         {
-            var value = new Value<int>(42);
+            var value = new SingleValue<int>(42);
 
             Assert.AreEqual(42, value.GetValue());
             Assert.AreEqual(0, value.Rank);

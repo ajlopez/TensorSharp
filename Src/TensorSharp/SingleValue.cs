@@ -5,12 +5,12 @@
     using System.Linq;
     using System.Text;
 
-    public class Value<T>
+    public class SingleValue<T>
     {
         private static int[] shape = new int[0];
         private T value;
 
-        public Value(T value)
+        public SingleValue(T value)
         {
             this.value = value;
         }
