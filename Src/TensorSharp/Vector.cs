@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Vector<T>
+    public class Vector<T> : IValue<T>
     {
         private T[] values;
         private int[] shape;

@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Matrix<T>
+    public class Matrix<T> : IValue<T>
     {
         private int[] shape;
         private T[] values;
