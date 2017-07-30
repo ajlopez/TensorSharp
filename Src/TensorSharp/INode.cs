@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public interface IValue<T>
+    public interface INode<T>
     {
         int Rank { get; }
 

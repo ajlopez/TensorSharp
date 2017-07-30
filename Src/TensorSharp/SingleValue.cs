@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class SingleValue<T> : IValue<T>
+    public class SingleValue<T> : INode<T>
     {
         private static int[] shape = new int[0];
         private T value;

@@ -11,8 +11,8 @@
         [TestMethod]
         public void AddSingleValues()
         {
-            IValue<int> left = new SingleValue<int>(1);
-            IValue<int> right = new SingleValue<int>(41);
+            INode<int> left = new SingleValue<int>(1);
+            INode<int> right = new SingleValue<int>(41);
 
             var add = new AddIntegerOperation(left, right);
 

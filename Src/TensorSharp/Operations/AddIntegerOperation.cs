@@ -5,14 +5,14 @@
     using System.Linq;
     using System.Text;
 
-    public class AddIntegerOperation : IValue<int>
+    public class AddIntegerOperation : INode<int>
     {
-        private IValue<int> left;
-        private IValue<int> right;
+        private INode<int> left;
+        private INode<int> right;
         private int rank;
         private int[] shape;
 
-        public AddIntegerOperation(IValue<int> left, IValue<int> right)
+        public AddIntegerOperation(INode<int> left, INode<int> right)
         {
             this.left = left;
             this.right = right;
@@ -29,7 +29,7 @@
             throw new NotImplementedException();
         }
 
-        public IValue<int> Evaluate()
+        public INode<int> Evaluate()
         {
             return new SingleValue<int>(this.left.GetValue() + this.right.GetValue());
         }
