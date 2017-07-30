@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IValue.cs" />
+    <Compile Include="INode.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Operations\AddIntegerIntegerOperation.cs" />
     <Compile Include="Operations\AddDoubleDoubleOperation.cs" />

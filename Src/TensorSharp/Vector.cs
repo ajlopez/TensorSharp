@@ -16,6 +16,12 @@
             this.shape = new int[] { length };
         }
 
+        public Vector(T[] values)
+        {
+            this.values = values;
+            this.shape = new int[] { values.Length };
+        }
+
         public int Rank { get { return 1; } }
 
         public int[] Shape { get { return this.shape; } }

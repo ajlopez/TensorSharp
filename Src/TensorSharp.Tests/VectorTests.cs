@@ -18,6 +18,20 @@
         }
 
         [TestMethod]
+        public void CreateIntegerVectorWithInitialValues()
+        {
+            var vector = new Vector<int>(new int[] { 1, 2, 3 });
+
+            Assert.AreEqual(1, vector.Rank);
+            Assert.IsNotNull(vector.Shape);
+            Assert.IsTrue(vector.Shape.SequenceEqual(new int[] { 3 }));
+
+            Assert.AreEqual(1, vector.GetValue(0));
+            Assert.AreEqual(2, vector.GetValue(1));
+            Assert.AreEqual(3, vector.GetValue(2));
+        }
+
+        [TestMethod]
         public void SetAndGetValues()
         {
             var vector = new Vector<int>(3);
