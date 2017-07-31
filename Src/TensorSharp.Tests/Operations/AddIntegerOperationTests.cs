@@ -44,8 +44,8 @@
             Assert.AreEqual(left.Rank, result.Rank);
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
             Assert.AreEqual(5, result.GetValue(0));
-            Assert.AreEqual(7, result.GetValue(0));
-            Assert.AreEqual(9, result.GetValue(0));
+            Assert.AreEqual(7, result.GetValue(1));
+            Assert.AreEqual(9, result.GetValue(2));
         }
     }
 }

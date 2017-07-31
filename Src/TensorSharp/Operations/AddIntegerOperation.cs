@@ -31,7 +31,21 @@
 
         public INode<int> Evaluate()
         {
-            return new SingleValue<int>(this.left.GetValue() + this.right.GetValue());
+            if (this.left.Rank == 1)
+            {
+                int[] newvalues = new int[this.left.Shape[0]];
+                int l = newvalues.Length;
+
+                for (int k = 0; k < l; k++)
+                    newvalues[k] = this.left.GetValue(k) + this.right.GetValue(k);
+
+                return new Vector<int>(newvalues);
+            }
+
+            if (this.left.Rank == 0)
+                return new SingleValue<int>(this.left.GetValue() + this.right.GetValue());
+
+            return null;
         }
     }
 }
