@@ -25,6 +25,14 @@
             Assert.AreEqual(2, matrix.Rank);
             Assert.IsNotNull(matrix.Shape);
             Assert.IsTrue(matrix.Shape.SequenceEqual(new int[] { 2, 3 }));
+
+            Assert.AreEqual(1, matrix.GetValue(0, 0));
+            Assert.AreEqual(2, matrix.GetValue(0, 1));
+            Assert.AreEqual(3, matrix.GetValue(0, 2));
+
+            Assert.AreEqual(4, matrix.GetValue(1, 0));
+            Assert.AreEqual(5, matrix.GetValue(1, 1));
+            Assert.AreEqual(6, matrix.GetValue(1, 2));
         }
 
         [TestMethod]

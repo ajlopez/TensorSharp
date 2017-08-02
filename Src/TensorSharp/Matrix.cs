@@ -24,11 +24,12 @@
             this.shape = new int[] { nrows, ncols };
         }
 
-        public Matrix(int[][] values)
+        public Matrix(T[][] values)
         {
             this.nrows = values.Length;
             this.ncols = values[0].Length;
             this.shape = new int[] { this.nrows, this.ncols };
+            this.values = values;
         }
 
         public int Rank { get { return 2; } }
