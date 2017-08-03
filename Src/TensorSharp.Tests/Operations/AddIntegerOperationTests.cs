@@ -47,5 +47,23 @@
             Assert.AreEqual(7, result.GetValue(1));
             Assert.AreEqual(9, result.GetValue(2));
         }
+
+        [TestMethod]
+        public void AddMatricess()
+        {
+            INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
+            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } }); ;
+
+            var add = new AddIntegerOperation(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+        }
     }
 }
