@@ -42,6 +42,23 @@
                 return new Vector<int>(newvalues);
             }
 
+            if (this.left.Rank == 1)
+            {
+                int l = this.left.Shape[0];
+                int m = this.left.Shape[1];
+                int[][] newvalues = new int[l][];
+
+                for (int k = 0; k < l; k++)
+                {
+                    newvalues[k] = new int[m];
+
+                    for (int j = 0; j < m; j++)
+                        newvalues[k][j] = this.left.GetValue(k, j) + this.right.GetValue(k, j);
+                }
+
+                return new Matrix<int>(newvalues);
+            }
+
             if (this.left.Rank == 0)
                 return new SingleValue<int>(this.left.GetValue() + this.right.GetValue());
 
