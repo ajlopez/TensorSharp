@@ -42,7 +42,7 @@
                 return new Vector<int>(newvalues);
             }
 
-            if (this.left.Rank == 1)
+            if (this.left.Rank == 2)
             {
                 int l = this.left.Shape[0];
                 int m = this.left.Shape[1];
