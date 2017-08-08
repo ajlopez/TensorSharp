@@ -64,6 +64,14 @@
             Assert.IsNotNull(result);
             Assert.AreEqual(left.Rank, result.Rank);
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+
+            Assert.AreEqual(11, result.GetValue(0, 0));
+            Assert.AreEqual(22, result.GetValue(0, 1));
+            Assert.AreEqual(33, result.GetValue(0, 2));
+
+            Assert.AreEqual(44, result.GetValue(1, 0));
+            Assert.AreEqual(55, result.GetValue(1, 1));
+            Assert.AreEqual(66, result.GetValue(1, 2));
         }
     }
 }
