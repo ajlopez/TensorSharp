@@ -14,6 +14,10 @@
 
         public AddIntegerOperation(INode<int> left, INode<int> right)
         {
+            if (left.Rank == 1 && right.Rank == 1)
+                if (left.Shape[0] != right.Shape[0])
+                    throw new InvalidOperationException();
+
             this.left = left;
             this.right = right;
             this.rank = left.Rank;

@@ -49,6 +49,22 @@
         }
 
         [TestMethod]
+        public void AddVectorsWithDifferentLengths()
+        {
+            INode<int> left = new Vector<int>(new int[] { 1, 2, 3 });
+            INode<int> right = new Vector<int>(new int[] { 4, 5, 6, 7 });
+
+            try
+            {
+                new AddIntegerOperation(left, right);
+                Assert.Fail();
+            }
+            catch (InvalidOperationException ex)
+            {
+            }
+        }
+
+        [TestMethod]
         public void AddMatricess()
         {
             INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
