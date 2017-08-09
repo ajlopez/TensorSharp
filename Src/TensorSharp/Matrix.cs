@@ -26,6 +26,10 @@
 
         public Matrix(T[][] values)
         {
+            for (int k = 0; k < values.Length - 1; k++)
+                if (values[k].Length != values[k + 1].Length)
+                    throw new InvalidOperationException();
+
             this.nrows = values.Length;
             this.ncols = values[0].Length;
             this.shape = new int[] { this.nrows, this.ncols };

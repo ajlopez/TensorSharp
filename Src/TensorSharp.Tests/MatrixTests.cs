@@ -36,6 +36,19 @@
         }
 
         [TestMethod]
+        public void CreateIntegerMatrixUsingValuesWithBadShape()
+        {
+            try
+            {
+                new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5 } });
+                Assert.Fail();
+            }
+            catch (InvalidOperationException ex)
+            {
+            }
+        }
+
+        [TestMethod]
         public void SetAndGetValues()
         {
             var matrix = new Matrix<int>(2, 3);
