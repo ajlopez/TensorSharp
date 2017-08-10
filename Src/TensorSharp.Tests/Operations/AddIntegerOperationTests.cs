@@ -65,7 +65,7 @@
         }
 
         [TestMethod]
-        public void AddMatricess()
+        public void AddMatrices()
         {
             INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
             INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } }); ;
@@ -88,6 +88,22 @@
             Assert.AreEqual(44, result.GetValue(1, 0));
             Assert.AreEqual(55, result.GetValue(1, 1));
             Assert.AreEqual(66, result.GetValue(1, 2));
+        }
+
+        [TestMethod]
+        public void AddMatricesWithDifferentShapes()
+        {
+            INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
+            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20 }, new int[] { 40, 50 } }); ;
+
+            try
+            {
+                new AddIntegerOperation(left, right);
+                Assert.Fail();
+            }
+            catch (InvalidOperationException ex)
+            {
+            }
         }
     }
 }
