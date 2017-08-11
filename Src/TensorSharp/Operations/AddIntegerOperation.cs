@@ -18,6 +18,10 @@
                 if (left.Shape[0] != right.Shape[0])
                     throw new InvalidOperationException();
 
+            if (left.Rank == 2 && right.Rank == 2)
+                if (left.Shape[0] != right.Shape[0] || left.Shape[1] != right.Shape[1])
+                    throw new InvalidOperationException();
+
             this.left = left;
             this.right = right;
             this.rank = left.Rank;
