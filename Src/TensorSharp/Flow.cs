@@ -11,5 +11,10 @@
         {
             return new SingleValue<T>(value);
         }
+
+        public static INode<T> Constant<T>(T[] values)
+        {
+            return new Vector<T>(values);
+        }
     }
 }
