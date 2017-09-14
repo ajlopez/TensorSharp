@@ -16,5 +16,10 @@
         {
             return new Vector<T>(values);
         }
+
+        public static INode<T> Constant<T>(T[][] values)
+        {
+            return new Matrix<T>(values);
+        }
     }
 }
