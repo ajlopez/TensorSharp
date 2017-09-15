@@ -49,5 +49,10 @@
         {
             this.values[coordinates[0]][coordinates[1]] = value;
         }
+
+        public INode<T> Evaluate()
+        {
+            return this;
+        }
     }
 }

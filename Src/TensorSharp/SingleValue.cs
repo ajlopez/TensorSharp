@@ -23,5 +23,10 @@
         {
             return this.value;
         }
+
+        public INode<T> Evaluate()
+        {
+            return this;
+        }
     }
 }
