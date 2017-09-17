@@ -59,7 +59,7 @@
                 new AddIntegerOperation(left, right);
                 Assert.Fail();
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
             }
         }
@@ -68,7 +68,7 @@
         public void AddMatrices()
         {
             INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
-            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } }); ;
+            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } });
 
             var add = new AddIntegerOperation(left, right);
 
@@ -94,14 +94,14 @@
         public void AddMatricesWithDifferentShapes()
         {
             INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
-            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20 }, new int[] { 40, 50 } }); ;
+            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20 }, new int[] { 40, 50 } });
 
             try
             {
                 new AddIntegerOperation(left, right);
                 Assert.Fail();
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
             }
         }
