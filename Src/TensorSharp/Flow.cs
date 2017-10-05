@@ -27,5 +27,10 @@ using TensorSharp.Operations;
         {
             return new AddIntegerOperation(left, right);
         }
+
+        public static INode<int> Subtract(INode<int> left, INode<int> right)
+        {
+            return new SubtractIntegerOperation(left, right);
+        }
     }
 }

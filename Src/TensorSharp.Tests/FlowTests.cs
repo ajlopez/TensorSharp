@@ -66,5 +66,24 @@
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
             Assert.AreEqual(42, result.GetValue());
         }
+
+        [TestMethod]
+        public void SubtractSingleValues()
+        {
+            INode<int> left = new SingleValue<int>(43);
+            INode<int> right = new SingleValue<int>(1);
+
+            var add = Flow.Subtract(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+            Assert.AreEqual(42, result.GetValue());
+        }
     }
 }
