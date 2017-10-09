@@ -51,8 +51,8 @@
         [TestMethod]
         public void AddSingleValues()
         {
-            INode<int> left = new SingleValue<int>(1);
-            INode<int> right = new SingleValue<int>(41);
+            INode<int> left = Flow.Constant<int>(1);
+            INode<int> right = Flow.Constant<int>(41);
 
             var add = Flow.Add(left, right);
 
@@ -117,8 +117,8 @@
         [TestMethod]
         public void SubtractSingleValues()
         {
-            INode<int> left = new SingleValue<int>(43);
-            INode<int> right = new SingleValue<int>(1);
+            INode<int> left = Flow.Constant<int>(43);
+            INode<int> right = Flow.Constant<int>(1);
 
             var add = Flow.Subtract(left, right);
 
