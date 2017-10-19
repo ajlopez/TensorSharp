@@ -46,6 +46,7 @@
     <Compile Include="Operations\AddIntegerIntegerOperation.cs" />
     <Compile Include="Operations\AddDoubleDoubleOperation.cs" />
     <Compile Include="Operations\AddIntegerOperation.cs" />
+    <Compile Include="Operations\AddDoubleOperation.cs" />
     <Compile Include="Operations\SubtractIntegerOperation.cs" />
     <Compile Include="Operations\NegateDoubleOperation.cs" />
     <Compile Include="Operations\NegateIntegerOperation.cs" />
