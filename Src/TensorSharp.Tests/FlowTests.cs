@@ -87,7 +87,7 @@
         }
 
         [TestMethod]
-        public void AddVectors()
+        public void AddIntegerVectors()
         {
             INode<int> left = Flow.Constant<int>(new int[] { 1, 2, 3 });
             INode<int> right = Flow.Constant<int>(new int[] { 4, 5, 6 });
@@ -108,7 +108,28 @@
         }
 
         [TestMethod]
-        public void AddMatrices()
+        public void AddDoubleVectors()
+        {
+            INode<double> left = Flow.Constant<double>(new double[] { 1.5, 2.5, 3.5 });
+            INode<double> right = Flow.Constant<double>(new double[] { 4.0, 5.0, 6.0 });
+
+            var add = Flow.Add(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+            Assert.AreEqual(5.5, result.GetValue(0));
+            Assert.AreEqual(7.5, result.GetValue(1));
+            Assert.AreEqual(9.5, result.GetValue(2));
+        }
+
+        [TestMethod]
+        public void AddIntegerMatrices()
         {
             INode<int> left = Flow.Constant<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
             INode<int> right = Flow.Constant<int>(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } });
@@ -134,7 +155,33 @@
         }
 
         [TestMethod]
-        public void SubtractSingleValues()
+        public void AddDoubleMatrices()
+        {
+            INode<double> left = Flow.Constant<double>(new double[][] { new double[] { 1.5, 2.5, 3.5 }, new double[] { 4.5, 5.5, 6.5 } });
+            INode<double> right = Flow.Constant<double>(new double[][] { new double[] { 10.0, 20.0, 30.0 }, new double[] { 40.0, 50.0, 60.0 } });
+
+            var add = Flow.Add(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+
+            Assert.AreEqual(11.5, result.GetValue(0, 0));
+            Assert.AreEqual(22.5, result.GetValue(0, 1));
+            Assert.AreEqual(33.5, result.GetValue(0, 2));
+
+            Assert.AreEqual(44.5, result.GetValue(1, 0));
+            Assert.AreEqual(55.5, result.GetValue(1, 1));
+            Assert.AreEqual(66.5, result.GetValue(1, 2));
+        }
+
+        [TestMethod]
+        public void SubtractIntegerSingleValues()
         {
             INode<int> left = Flow.Constant<int>(43);
             INode<int> right = Flow.Constant<int>(1);
@@ -150,6 +197,25 @@
             Assert.AreEqual(left.Rank, result.Rank);
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
             Assert.AreEqual(42, result.GetValue());
+        }
+
+        [TestMethod]
+        public void SubtractDoubleSingleValues()
+        {
+            INode<double> left = Flow.Constant<double>(43.5);
+            INode<double> right = Flow.Constant<double>(1.5);
+
+            var add = Flow.Subtract(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+            Assert.AreEqual(42.0, result.GetValue());
         }
     }
 }

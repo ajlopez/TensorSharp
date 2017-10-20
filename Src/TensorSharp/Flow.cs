@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-using TensorSharp.Operations;
+    using TensorSharp.Operations;
 
     public static class Flow
     {
@@ -36,6 +36,11 @@ using TensorSharp.Operations;
         public static INode<int> Subtract(INode<int> left, INode<int> right)
         {
             return new SubtractIntegerOperation(left, right);
+        }
+
+        public static INode<double> Subtract(INode<double> left, INode<double> right)
+        {
+            return new SubtractDoubleOperation(left, right);
         }
     }
 }
