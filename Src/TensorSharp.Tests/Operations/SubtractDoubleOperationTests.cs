@@ -11,8 +11,8 @@
         [TestMethod]
         public void SubtractSingleValues()
         {
-            INode<double> left = new SingleValue<double>(0.5);
-            INode<double> right = new SingleValue<double>(41.5);
+            INode<double> left = new SingleValue<double>(42.5);
+            INode<double> right = new SingleValue<double>(0.5);
 
             var subtract = new SubtractDoubleOperation(left, right);
 
@@ -30,8 +30,8 @@
         [TestMethod]
         public void SubtractVectors()
         {
-            INode<double> left = new Vector<double>(new double[] { 1.5, 2.5, 3.5 });
-            INode<double> right = new Vector<double>(new double[] { 4, 5, 6 });
+            INode<double> left = new Vector<double>(new double[] { 1.5, 2.4, 3.3 });
+            INode<double> right = new Vector<double>(new double[] { 0.5, 0.4, 0.3 });
 
             var add = new SubtractDoubleOperation(left, right);
 
@@ -43,9 +43,9 @@
             Assert.IsNotNull(result);
             Assert.AreEqual(left.Rank, result.Rank);
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
-            Assert.AreEqual(5.5, result.GetValue(0));
-            Assert.AreEqual(7.5, result.GetValue(1));
-            Assert.AreEqual(9.5, result.GetValue(2));
+            Assert.AreEqual(1.0, result.GetValue(0));
+            Assert.AreEqual(2.0, result.GetValue(1));
+            Assert.AreEqual(3.0, result.GetValue(2));
         }
 
         [TestMethod]
@@ -67,8 +67,8 @@
         [TestMethod]
         public void SubtractMatrices()
         {
-            INode<double> left = new Matrix<double>(new double[][] { new double[] { 1.5, 2.5, 3.5 }, new double[] { 4.5, 5.5, 6.5 } });
-            INode<double> right = new Matrix<double>(new double[][] { new double[] { 10.0, 20.0, 30.0 }, new double[] { 40.0, 50.0, 60.0 } });
+            INode<double> left = new Matrix<double>(new double[][] { new double[] { 1.5, 2.4, 3.3 }, new double[] { 4.5, 5.5, 6.5 } });
+            INode<double> right = new Matrix<double>(new double[][] { new double[] { 0.5, 0.4, 0.3 }, new double[] { 4.0, 5.0, 6.0 } });
 
             var add = new SubtractDoubleOperation(left, right);
 
@@ -81,13 +81,13 @@
             Assert.AreEqual(left.Rank, result.Rank);
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
 
-            Assert.AreEqual(11.5, result.GetValue(0, 0));
-            Assert.AreEqual(22.5, result.GetValue(0, 1));
-            Assert.AreEqual(33.5, result.GetValue(0, 2));
+            Assert.AreEqual(1.0, result.GetValue(0, 0));
+            Assert.AreEqual(2.0, result.GetValue(0, 1));
+            Assert.AreEqual(3.0, result.GetValue(0, 2));
 
-            Assert.AreEqual(44.5, result.GetValue(1, 0));
-            Assert.AreEqual(55.5, result.GetValue(1, 1));
-            Assert.AreEqual(66.5, result.GetValue(1, 2));
+            Assert.AreEqual(0.5, result.GetValue(1, 0));
+            Assert.AreEqual(0.5, result.GetValue(1, 1));
+            Assert.AreEqual(0.5, result.GetValue(1, 2));
         }
 
         [TestMethod]
