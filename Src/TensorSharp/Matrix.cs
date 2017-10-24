@@ -5,54 +5,16 @@
     using System.Linq;
     using System.Text;
 
-    public class Matrix<T> : INode<T>
+    public class Matrix<T> : BaseValueNode<T>
     {
-        private int[] shape;
-        private T[][] values;
-        private int nrows;
-        private int ncols;
-
         public Matrix(int nrows, int ncols)
+            : base(new int[] { nrows, ncols }, new T[nrows * ncols])
         {
-            this.nrows = nrows;
-            this.ncols = ncols;
-            this.values = new T[nrows][];
-
-            for (int k = 0; k < nrows; k++)
-                this.values[k] = new T[ncols];
-
-            this.shape = new int[] { nrows, ncols };
         }
 
         public Matrix(T[][] values)
+            : base(new int[0], new T[0])
         {
-            for (int k = 0; k < values.Length - 1; k++)
-                if (values[k].Length != values[k + 1].Length)
-                    throw new InvalidOperationException();
-
-            this.nrows = values.Length;
-            this.ncols = values[0].Length;
-            this.shape = new int[] { this.nrows, this.ncols };
-            this.values = values;
-        }
-
-        public int Rank { get { return 2; } }
-
-        public int[] Shape { get { return this.shape; } }
-
-        public T GetValue(params int[] coordinates)
-        {
-            return this.values[coordinates[0]][coordinates[1]];
-        }
-
-        public void SetValue(T value, params int[] coordinates)
-        {
-            this.values[coordinates[0]][coordinates[1]] = value;
-        }
-
-        public INode<T> Evaluate()
-        {
-            return this;
         }
     }
 }
