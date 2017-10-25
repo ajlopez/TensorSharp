@@ -47,14 +47,5 @@
             {
             }
         }
-
-        [TestMethod]
-        public void SetAndGetValues()
-        {
-            var matrix = new Matrix<int>(2, 3);
-
-            matrix.SetValue(42, 1, 2);
-            Assert.AreEqual(42, matrix.GetValue(1, 2));
-        }
     }
 }
