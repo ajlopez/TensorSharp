@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class SubtractDoubleOperation : INode<double>
+    public class SubtractDoubleOperation : BaseNode<double>
     {
         private INode<double> left;
         private INode<double> right;
@@ -28,16 +28,16 @@
             this.shape = left.Shape;
         }
 
-        public int Rank { get { return this.rank; } }
+        public override int Rank { get { return this.rank; } }
 
-        public int[] Shape { get { return this.shape; } }
+        public override int[] Shape { get { return this.shape; } }
 
-        public double GetValue(params int[] coordinates)
+        public override double GetValue(params int[] coordinates)
         {
             throw new NotImplementedException();
         }
 
-        public INode<double> Evaluate()
+        public override INode<double> Evaluate()
         {
             if (this.left.Rank == 1)
             {

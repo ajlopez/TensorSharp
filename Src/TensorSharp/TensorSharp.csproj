@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseValueNode.cs" />
+    <Compile Include="BaseNode.cs" />
     <Compile Include="Flow.cs" />
     <Compile Include="INode.cs" />
     <Compile Include="Matrix.cs" />

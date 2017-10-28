@@ -11,6 +11,8 @@
 
         int[] Shape { get; }
 
+        T[] Values { get; }
+
         T GetValue(params int[] coordinates);
 
         INode<T> Evaluate();

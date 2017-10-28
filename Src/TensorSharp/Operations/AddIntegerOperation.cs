@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class AddIntegerOperation : INode<int>
+    public class AddIntegerOperation : BaseNode<int>
     {
         private INode<int> left;
         private INode<int> right;
@@ -28,16 +28,16 @@
             this.shape = left.Shape;
         }
 
-        public int Rank { get { return this.rank; } }
+        public override int Rank { get { return this.rank; } }
 
-        public int[] Shape { get { return this.shape; } }
+        public override int[] Shape { get { return this.shape; } }
 
-        public int GetValue(params int[] coordinates)
+        public override int GetValue(params int[] coordinates)
         {
             throw new NotImplementedException();
         }
 
-        public INode<int> Evaluate()
+        public override INode<int> Evaluate()
         {
             if (this.left.Rank == 1)
             {
