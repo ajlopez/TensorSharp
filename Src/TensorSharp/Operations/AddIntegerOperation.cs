@@ -12,17 +12,12 @@
         {
         }
 
-        public override INode<int> Evaluate()
+        public override void Calculate(int[] newvalues, int[] leftvalues, int[] rightvalues)
         {
-            int[] leftvalues = this.Left.Values;
-            int[] rightvalues = this.Right.Values;
-            int l = leftvalues.Length;
-            int[] newvalues = new int[l];
+            int l = newvalues.Length;
 
             for (int k = 0; k < l; k++)
                 newvalues[k] = leftvalues[k] + rightvalues[k];
-
-            return new BaseValueNode<int>(this.Shape, newvalues);
         }
     }
 }

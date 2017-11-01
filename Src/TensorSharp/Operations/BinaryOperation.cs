@@ -35,5 +35,19 @@
         {
             throw new NotImplementedException();
         }
+
+        public override INode<T> Evaluate()
+        {
+            T[] leftvalues = this.Left.Values;
+            T[] rightvalues = this.Right.Values;
+            int l = leftvalues.Length;
+            T[] newvalues = new T[l];
+
+            this.Calculate(newvalues, leftvalues, rightvalues);
+
+            return new BaseValueNode<T>(this.Shape, newvalues);
+        }
+
+        public abstract void Calculate(T[] newvalues, T[] leftvalues, T[] rightvalues);
     }
 }
