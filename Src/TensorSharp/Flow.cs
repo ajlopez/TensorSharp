@@ -15,7 +15,7 @@
 
         public static INode<T> Constant<T>(T[] values)
         {
-            return new Vector<T>(values);
+            return new BaseValueNode<T>(new int[] { values.Length }, values);
         }
 
         public static INode<T> Constant<T>(T[][] values)

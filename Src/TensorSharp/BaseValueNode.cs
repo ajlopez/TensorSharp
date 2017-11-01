@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public abstract class BaseValueNode<T> : INode<T>
+    public class BaseValueNode<T> : INode<T>
     {
         private int[] shape;
         private T[] values;
