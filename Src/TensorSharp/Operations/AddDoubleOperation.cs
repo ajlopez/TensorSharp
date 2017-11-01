@@ -5,67 +5,24 @@
     using System.Linq;
     using System.Text;
 
-    public class AddDoubleOperation : BaseNode<double>
+    public class AddDoubleOperation : BinaryOperation<double>
     {
-        private INode<double> left;
-        private INode<double> right;
-        private int rank;
-        private int[] shape;
-
         public AddDoubleOperation(INode<double> left, INode<double> right)
+            : base(left, right)
         {
-            if (!left.Shape.SequenceEqual(right.Shape))
-                throw new InvalidOperationException();
-
-            this.left = left;
-            this.right = right;
-            this.rank = left.Rank;
-            this.shape = left.Shape;
-        }
-
-        public override int Rank { get { return this.rank; } }
-
-        public override int[] Shape { get { return this.shape; } }
-
-        public override double GetValue(params int[] coordinates)
-        {
-            throw new NotImplementedException();
         }
 
         public override INode<double> Evaluate()
         {
-            if (this.left.Rank == 1)
-            {
-                double[] newvalues = new double[this.left.Shape[0]];
-                int l = newvalues.Length;
+            double[] leftvalues = this.Left.Values;
+            double[] rightvalues = this.Right.Values;
+            int l = leftvalues.Length;
+            double[] newvalues = new double[l];
 
-                for (int k = 0; k < l; k++)
-                    newvalues[k] = this.left.GetValue(k) + this.right.GetValue(k);
+            for (int k = 0; k < l; k++)
+                newvalues[k] = leftvalues[k] + rightvalues[k];
 
-                return new Vector<double>(newvalues);
-            }
-
-            if (this.left.Rank == 2)
-            {
-                int l = this.left.Shape[0];
-                int m = this.left.Shape[1];
-                double[][] newvalues = new double[l][];
-
-                for (int k = 0; k < l; k++)
-                {
-                    newvalues[k] = new double[m];
-
-                    for (int j = 0; j < m; j++)
-                        newvalues[k][j] = this.left.GetValue(k, j) + this.right.GetValue(k, j);
-                }
-
-                return new Matrix<double>(newvalues);
-            }
-
-            if (this.left.Rank == 0)
-                return new SingleValue<double>(this.left.GetValue() + this.right.GetValue());
-
-            return null;
+            return new BaseValueNode<double>(this.Shape, newvalues);
         }
     }
 }
