@@ -14,13 +14,8 @@
 
         public SubtractDoubleOperation(INode<double> left, INode<double> right)
         {
-            if (left.Rank == 1 && right.Rank == 1)
-                if (left.Shape[0] != right.Shape[0])
-                    throw new InvalidOperationException();
-
-            if (left.Rank == 2 && right.Rank == 2)
-                if (left.Shape[0] != right.Shape[0] || left.Shape[1] != right.Shape[1])
-                    throw new InvalidOperationException();
+            if (!left.Shape.SequenceEqual(right.Shape))
+                throw new InvalidOperationException();
 
             this.left = left;
             this.right = right;
