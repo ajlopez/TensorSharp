@@ -45,8 +45,6 @@
     <Compile Include="Flow.cs" />
     <Compile Include="INode.cs" />
     <Compile Include="Matrix.cs" />
-    <Compile Include="Operations\AddIntegerIntegerOperation.cs" />
-    <Compile Include="Operations\AddDoubleDoubleOperation.cs" />
     <Compile Include="Operations\AddIntegerOperation.cs" />
     <Compile Include="Operations\BinaryOperation.cs" />
     <Compile Include="Operations\AddDoubleOperation.cs" />
@@ -54,13 +52,6 @@
     <Compile Include="Operations\SubtractIntegerOperation.cs" />
     <Compile Include="Operations\NegateDoubleOperation.cs" />
     <Compile Include="Operations\NegateIntegerOperation.cs" />
-    <Compile Include="Operations\DivideDoubleDoubleOperation.cs" />
-    <Compile Include="Operations\MultiplyDoubleDoubleOperation.cs" />
-    <Compile Include="Operations\SubtractDoubleDoubleOperation.cs" />
-    <Compile Include="Operations\DivideIntegerIntegerOperation.cs" />
-    <Compile Include="Operations\MultiplyIntegerIntegerOperation.cs" />
-    <Compile Include="Operations\SubtractIntegerIntegerOperation.cs" />
-    <Compile Include="Operations\IBinaryOperation.cs" />
     <Compile Include="Operations\IUnaryOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tensor.cs" />
