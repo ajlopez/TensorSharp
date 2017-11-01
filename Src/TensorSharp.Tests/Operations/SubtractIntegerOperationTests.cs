@@ -30,8 +30,8 @@
         [TestMethod]
         public void SubtractVectors()
         {
-            INode<int> left = new Vector<int>(new int[] { 1, 2, 3 });
-            INode<int> right = new Vector<int>(new int[] { 4, 5, 6 });
+            INode<int> left = Flow.Constant(new int[] { 1, 2, 3 });
+            INode<int> right = Flow.Constant(new int[] { 4, 5, 6 });
 
             var add = new SubtractIntegerOperation(left, right);
 
@@ -51,8 +51,8 @@
         [TestMethod]
         public void SubtractVectorsWithDifferentLengths()
         {
-            INode<int> left = new Vector<int>(new int[] { 1, 2, 3 });
-            INode<int> right = new Vector<int>(new int[] { 4, 5, 6, 7 });
+            INode<int> left = Flow.Constant(new int[] { 1, 2, 3 });
+            INode<int> right = Flow.Constant(new int[] { 4, 5, 6, 7 });
 
             try
             {

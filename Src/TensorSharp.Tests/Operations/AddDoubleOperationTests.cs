@@ -30,8 +30,8 @@
         [TestMethod]
         public void AddVectors()
         {
-            INode<double> left = new Vector<double>(new double[] { 1.5, 2.5, 3.5 });
-            INode<double> right = new Vector<double>(new double[] { 4, 5, 6 });
+            INode<double> left = Flow.Constant(new double[] { 1.5, 2.5, 3.5 });
+            INode<double> right = Flow.Constant(new double[] { 4, 5, 6 });
 
             var add = new AddDoubleOperation(left, right);
 
@@ -51,8 +51,8 @@
         [TestMethod]
         public void AddVectorsWithDifferentLengths()
         {
-            INode<double> left = new Vector<double>(new double[] { 1.5, 2.5, 3.5 });
-            INode<double> right = new Vector<double>(new double[] { 4.0, 5.0, 6.0, 7.0 });
+            INode<double> left = Flow.Constant(new double[] { 1.5, 2.5, 3.5 });
+            INode<double> right = Flow.Constant(new double[] { 4.0, 5.0, 6.0, 7.0 });
 
             try
             {

@@ -54,7 +54,6 @@
     <Compile Include="TensorTests.cs" />
     <Compile Include="SingleValueTests.cs" />
     <Compile Include="FlowTests.cs" />
-    <Compile Include="VectorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TensorSharp\TensorSharp.csproj">
