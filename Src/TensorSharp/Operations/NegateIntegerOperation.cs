@@ -5,18 +5,19 @@
     using System.Linq;
     using System.Text;
 
-    public class NegateIntegerOperation : IUnaryOperation<int, int>
+    public class NegateIntegerOperation : UnaryOperation<int>
     {
-        public Tensor<int> Evaluate(Tensor<int> tensor)
+        public NegateIntegerOperation(INode<int> node)
+            : base(node)
         {
-            int[] values = tensor.GetValues();
-            int l = values.Length;
-            int[] newvalues = new int[l];
+        }
+
+        public override void Calculate(int[] newvalues, int[] values)
+        {
+            int l = newvalues.Length;
 
             for (int k = 0; k < l; k++)
                 newvalues[k] = -values[k];
-
-            return tensor.CloneWithNewValues(newvalues);
         }
     }
 }

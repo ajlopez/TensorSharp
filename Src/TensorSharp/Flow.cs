@@ -23,6 +23,16 @@
             return new BaseValueNode<T>(CalculateShape(values), ToFlatArray(values));
         }
 
+        public static INode<int> Negate(INode<int> node)
+        {
+            return new NegateIntegerOperation(node);
+        }
+
+        public static INode<double> Negate(INode<double> node)
+        {
+            return new NegateDoubleOperation(node);
+        }
+
         public static INode<int> Add(INode<int> left, INode<int> right)
         {
             return new AddIntegerOperation(left, right);

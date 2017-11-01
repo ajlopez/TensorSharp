@@ -71,29 +71,6 @@
             this.seal = true;
         }
 
-        public Tensor<T> Negate()
-        {
-            if (typeof(T) == typeof(int))
-            {
-                var operation = new NegateIntegerOperation();
-
-                Tensor<int> result = operation.Evaluate(this as Tensor<int>);
-
-                return result as Tensor<T>;
-            }
-
-            if (typeof(T) == typeof(double))
-            {
-                var operation = new NegateDoubleOperation();
-
-                Tensor<double> result = operation.Evaluate(this as Tensor<double>);
-
-                return result as Tensor<T>;
-            }
-
-            return null;
-        }
-
         internal T[] GetValues()
         {
             return this.values;
