@@ -67,8 +67,8 @@
         [TestMethod]
         public void AddMatrices()
         {
-            INode<double> left = new Matrix<double>(new double[][] { new double[] { 1.5, 2.5, 3.5 }, new double[] { 4.5, 5.5, 6.5 } });
-            INode<double> right = new Matrix<double>(new double[][] { new double[] { 10.0, 20.0, 30.0 }, new double[] { 40.0, 50.0, 60.0 } });
+            INode<double> left = Flow.Constant(new double[][] { new double[] { 1.5, 2.5, 3.5 }, new double[] { 4.5, 5.5, 6.5 } });
+            INode<double> right = Flow.Constant(new double[][] { new double[] { 10.0, 20.0, 30.0 }, new double[] { 40.0, 50.0, 60.0 } });
 
             var add = new AddDoubleOperation(left, right);
 
@@ -93,8 +93,8 @@
         [TestMethod]
         public void AddMatricesWithDifferentShapes()
         {
-            INode<double> left = new Matrix<double>(new double[][] { new double[] { 1.5, 2.5, 3.5 }, new double[] { 4.5, 5.5, 6.5 } });
-            INode<double> right = new Matrix<double>(new double[][] { new double[] { 10.0, 20.0 }, new double[] { 40.0, 50.0 } });
+            INode<double> left = Flow.Constant(new double[][] { new double[] { 1.5, 2.5, 3.5 }, new double[] { 4.5, 5.5, 6.5 } });
+            INode<double> right = Flow.Constant(new double[][] { new double[] { 10.0, 20.0 }, new double[] { 40.0, 50.0 } });
 
             try
             {

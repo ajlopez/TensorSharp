@@ -45,7 +45,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MatrixTests.cs" />
     <Compile Include="Operations\AddIntegerOperationTests.cs" />
     <Compile Include="Operations\AddDoubleOperationTests.cs" />
     <Compile Include="Operations\SubtractDoubleOperationTests.cs" />

@@ -44,7 +44,6 @@
     <Compile Include="BaseNode.cs" />
     <Compile Include="Flow.cs" />
     <Compile Include="INode.cs" />
-    <Compile Include="Matrix.cs" />
     <Compile Include="Operations\AddIntegerOperation.cs" />
     <Compile Include="Operations\BinaryOperation.cs" />
     <Compile Include="Operations\AddDoubleOperation.cs" />

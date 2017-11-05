@@ -67,8 +67,8 @@
         [TestMethod]
         public void SubtractMatrices()
         {
-            INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
-            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } });
+            INode<int> left = Flow.Constant(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
+            INode<int> right = Flow.Constant(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } });
 
             var add = new SubtractIntegerOperation(left, right);
 
@@ -93,8 +93,8 @@
         [TestMethod]
         public void SubtractMatricesWithDifferentShapes()
         {
-            INode<int> left = new Matrix<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
-            INode<int> right = new Matrix<int>(new int[][] { new int[] { 10, 20 }, new int[] { 40, 50 } });
+            INode<int> left = Flow.Constant(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
+            INode<int> right = Flow.Constant(new int[][] { new int[] { 10, 20 }, new int[] { 40, 50 } });
 
             try
             {
