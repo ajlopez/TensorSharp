@@ -52,10 +52,7 @@
     <Compile Include="Operations\SubtractDoubleOperation.cs" />
     <Compile Include="Operations\SubtractIntegerOperation.cs" />
     <Compile Include="Operations\NegateDoubleOperation.cs" />
-    <Compile Include="Operations\IUnaryOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tensor.cs" />
-    <Compile Include="TensorException.cs" />
     <Compile Include="SingleValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
