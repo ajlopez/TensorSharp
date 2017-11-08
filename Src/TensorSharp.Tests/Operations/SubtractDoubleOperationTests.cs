@@ -11,8 +11,8 @@
         [TestMethod]
         public void SubtractSingleValues()
         {
-            INode<double> left = new SingleValue<double>(42.5);
-            INode<double> right = new SingleValue<double>(0.5);
+            INode<double> left = Flow.Constant(42.5);
+            INode<double> right = Flow.Constant(0.5);
 
             var subtract = new SubtractDoubleOperation(left, right);
 

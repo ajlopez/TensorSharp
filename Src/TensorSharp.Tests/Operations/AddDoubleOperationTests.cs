@@ -11,8 +11,8 @@
         [TestMethod]
         public void AddSingleValues()
         {
-            INode<double> left = new SingleValue<double>(0.5);
-            INode<double> right = new SingleValue<double>(41.5);
+            INode<double> left = Flow.Constant(0.5);
+            INode<double> right = Flow.Constant(41.5);
 
             var add = new AddDoubleOperation(left, right);
 

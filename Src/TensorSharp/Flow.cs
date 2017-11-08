@@ -10,7 +10,7 @@
     {
         public static INode<T> Constant<T>(T value)
         {
-            return new SingleValue<T>(value);
+            return new BaseValueNode<T>(new int[0], new T[] { value });
         }
 
         public static INode<T> Constant<T>(T[] values)

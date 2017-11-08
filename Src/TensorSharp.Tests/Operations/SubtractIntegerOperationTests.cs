@@ -11,8 +11,8 @@
         [TestMethod]
         public void SubtractSingleValues()
         {
-            INode<int> left = new SingleValue<int>(43);
-            INode<int> right = new SingleValue<int>(1);
+            INode<int> left = Flow.Constant(43);
+            INode<int> right = Flow.Constant(1);
 
             var add = new SubtractIntegerOperation(left, right);
 
