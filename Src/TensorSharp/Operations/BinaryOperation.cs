@@ -38,8 +38,8 @@
 
         public override INode<T> Evaluate()
         {
-            T[] leftvalues = this.Left.Values;
-            T[] rightvalues = this.Right.Values;
+            T[] leftvalues = this.Left.Evaluate().Values;
+            T[] rightvalues = this.Right.Evaluate().Values;
             int l = leftvalues.Length;
             T[] newvalues = new T[l];
 

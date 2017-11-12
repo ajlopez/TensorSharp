@@ -27,7 +27,7 @@
 
         public override INode<T> Evaluate()
         {
-            T[] values = this.Node.Values;
+            T[] values = this.Node.Evaluate().Values;
             int l = values.Length;
             T[] newvalues = new T[l];
 
