@@ -53,6 +53,11 @@
             return new SubtractDoubleOperation(left, right);
         }
 
+        public static INode<int> Multiply(INode<int> left, INode<int> right)
+        {
+            return new MultiplyIntegerOperation(left, right);
+        }
+
         private static int[] CalculateShape<T>(T[][] values)
         {
             if (values == null)
