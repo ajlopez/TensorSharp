@@ -47,6 +47,7 @@
     <Compile Include="Operations\AddIntegerOperation.cs" />
     <Compile Include="Operations\BinaryOperation.cs" />
     <Compile Include="Operations\AddDoubleOperation.cs" />
+    <Compile Include="Operations\DivideIntegerOperation.cs" />
     <Compile Include="Operations\MultiplyDoubleOperation.cs" />
     <Compile Include="Operations\MultiplyIntegerOperation.cs" />
     <Compile Include="Operations\NegateIntegerOperation.cs" />
