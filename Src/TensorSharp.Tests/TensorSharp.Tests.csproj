@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Operations\AddIntegerOperationTests.cs" />
     <Compile Include="Operations\AddDoubleOperationTests.cs" />
+    <Compile Include="Operations\DivideDoubleOperationTests.cs" />
     <Compile Include="Operations\DivideIntegerOperationTests.cs" />
     <Compile Include="Operations\MultiplyDoubleOperationTests.cs" />
     <Compile Include="Operations\MultiplyIntegerOperationTests.cs" />
