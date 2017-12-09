@@ -346,5 +346,52 @@
             Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
             Assert.AreEqual(42.0, result.GetValue());
         }
+
+        [TestMethod]
+        public void SubtractDoubleVectors()
+        {
+            INode<double> left = Flow.Constant(new double[] { 1.5, 2.4, 3.3 });
+            INode<double> right = Flow.Constant(new double[] { 0.5, 0.4, 0.3 });
+
+            var add = Flow.Subtract(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+            Assert.AreEqual(1.0, result.GetValue(0));
+            Assert.AreEqual(2.0, result.GetValue(1));
+            Assert.AreEqual(3.0, result.GetValue(2));
+        }
+
+        [TestMethod]
+        public void SubtractDoubleMatrices()
+        {
+            INode<double> left = Flow.Constant(new double[][] { new double[] { 1.5, 2.4, 3.3 }, new double[] { 4.5, 5.5, 6.5 } });
+            INode<double> right = Flow.Constant(new double[][] { new double[] { 0.5, 0.4, 0.3 }, new double[] { 4.0, 5.0, 6.0 } });
+
+            var add = Flow.Subtract(left, right);
+
+            Assert.AreEqual(left.Rank, add.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = add.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+
+            Assert.AreEqual(1.0, result.GetValue(0, 0));
+            Assert.AreEqual(2.0, result.GetValue(0, 1));
+            Assert.AreEqual(3.0, result.GetValue(0, 2));
+
+            Assert.AreEqual(0.5, result.GetValue(1, 0));
+            Assert.AreEqual(0.5, result.GetValue(1, 1));
+            Assert.AreEqual(0.5, result.GetValue(1, 2));
+        }
     }
 }
