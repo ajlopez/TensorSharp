@@ -63,6 +63,11 @@
             return new DivideIntegerOperation(left, right);
         }
 
+        public static INode<double> Divide(INode<double> left, INode<double> right)
+        {
+            return new DivideDoubleOperation(left, right);
+        }
+
         private static int[] CalculateShape<T>(T[][] values)
         {
             if (values == null)
