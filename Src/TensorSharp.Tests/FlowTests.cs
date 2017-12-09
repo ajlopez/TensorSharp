@@ -393,5 +393,71 @@
             Assert.AreEqual(0.5, result.GetValue(1, 1));
             Assert.AreEqual(0.5, result.GetValue(1, 2));
         }
+
+        [TestMethod]
+        public void DivideIntegerSingleValues()
+        {
+            INode<int> left = Flow.Constant(84);
+            INode<int> right = Flow.Constant(2);
+
+            var divide = Flow.Divide(left, right);
+
+            Assert.AreEqual(left.Rank, divide.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = divide.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+            Assert.AreEqual(42, result.GetValue());
+        }
+
+        [TestMethod]
+        public void DivideIntegerVectors()
+        {
+            INode<int> left = Flow.Constant(new int[] { 4, 5, 6 });
+            INode<int> right = Flow.Constant(new int[] { 1, 2, 3 });
+
+            var divide = Flow.Divide(left, right);
+
+            Assert.AreEqual(left.Rank, divide.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = divide.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+            Assert.AreEqual(4, result.GetValue(0));
+            Assert.AreEqual(2, result.GetValue(1));
+            Assert.AreEqual(2, result.GetValue(2));
+        }
+
+        [TestMethod]
+        public void DivideIntegerMatrices()
+        {
+            INode<int> left = Flow.Constant(new int[][] { new int[] { 10, 20, 30 }, new int[] { 40, 50, 60 } });
+            INode<int> right = Flow.Constant(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 } });
+
+            var divide = Flow.Divide(left, right);
+
+            Assert.AreEqual(left.Rank, divide.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(right.Shape));
+
+            var result = divide.Evaluate();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(left.Rank, result.Rank);
+            Assert.IsTrue(left.Shape.SequenceEqual(result.Shape));
+
+            Assert.AreEqual(10, result.GetValue(0, 0));
+            Assert.AreEqual(10, result.GetValue(0, 1));
+            Assert.AreEqual(10, result.GetValue(0, 2));
+
+            Assert.AreEqual(10, result.GetValue(1, 0));
+            Assert.AreEqual(10, result.GetValue(1, 1));
+            Assert.AreEqual(10, result.GetValue(1, 2));
+        }
     }
 }
