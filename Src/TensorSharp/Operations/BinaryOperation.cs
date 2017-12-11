@@ -32,14 +32,6 @@
 
         public INode<T> Right { get { return this.right; } }
 
-        public override T GetValue(params int[] coordinates)
-        {
-            if (this.value == null)
-                this.value = this.Evaluate();
-
-            return this.value.GetValue(coordinates);
-        }
-
         public override INode<T> Evaluate()
         {
             T[] leftvalues = this.Left.Evaluate().Values;

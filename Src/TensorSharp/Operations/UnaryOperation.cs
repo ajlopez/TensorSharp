@@ -20,11 +20,6 @@
 
         public INode<T> Node { get { return this.node; } }
 
-        public override T GetValue(params int[] coordinates)
-        {
-            throw new NotImplementedException();
-        }
-
         public override INode<T> Evaluate()
         {
             T[] values = this.Node.Evaluate().Values;

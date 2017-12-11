@@ -7,13 +7,30 @@
 
     public abstract class BaseNode<T> : INode<T>
     {
-        public T[] Values { get { return this.Evaluate().Values; } }
+        private INode<T> value;
+
+        public T[] Values
+        {
+            get
+            {
+                if (this.value == null)
+                    this.value = this.Evaluate();
+
+                return this.value.Values;
+            }
+        }
 
         public abstract int Rank { get; }
 
         public abstract int[] Shape { get; }
 
-        public abstract T GetValue(params int[] coordinates);
+        public T GetValue(params int[] coordinates)
+        {
+            if (this.value == null)
+                this.value = this.Evaluate();
+
+            return this.value.GetValue(coordinates);
+        }
 
         public abstract INode<T> Evaluate();
     }
