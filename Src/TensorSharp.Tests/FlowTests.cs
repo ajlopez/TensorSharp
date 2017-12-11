@@ -49,6 +49,32 @@
         }
 
         [TestMethod]
+        public void CreateConstantMatrixWithBadShape()
+        {
+            try
+            {
+                Flow.Constant<int>(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5 } });
+                Assert.Fail();
+            }
+            catch (InvalidOperationException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void CreateConstantMatrixWithNullValues()
+        {
+            try
+            {
+                Flow.Constant<int>((int[][]) null);
+                Assert.Fail();
+            }
+            catch (InvalidOperationException)
+            {
+            }
+        }
+
+        [TestMethod]
         public void NegateIntegerSingleValue()
         {
             INode<int> value = Flow.Negate(Flow.Constant(42)).Evaluate();
@@ -187,6 +213,22 @@
             Assert.AreEqual(5, result.GetValue(0));
             Assert.AreEqual(7, result.GetValue(1));
             Assert.AreEqual(9, result.GetValue(2));
+        }
+
+        [TestMethod]
+        public void AddVectorsWithDifferentLengths()
+        {
+            INode<int> left = Flow.Constant(new int[] { 1, 2, 3 });
+            INode<int> right = Flow.Constant(new int[] { 4, 5, 6, 7 });
+
+            try
+            {
+                Flow.Add(left, right);
+                Assert.Fail();
+            }
+            catch (InvalidOperationException)
+            {
+            }
         }
 
         [TestMethod]
