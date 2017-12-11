@@ -11,6 +11,7 @@
         private INode<T> right;
         private int rank;
         private int[] shape;
+        private INode<T> value;
 
         public BinaryOperation(INode<T> left, INode<T> right)
         {
@@ -33,7 +34,10 @@
 
         public override T GetValue(params int[] coordinates)
         {
-            throw new NotImplementedException();
+            if (this.value == null)
+                this.value = this.Evaluate();
+
+            return this.value.GetValue(coordinates);
         }
 
         public override INode<T> Evaluate()
