@@ -59,7 +59,7 @@
                 new SubtractIntegerOperation(left, right);
                 Assert.Fail();
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
             }
         }

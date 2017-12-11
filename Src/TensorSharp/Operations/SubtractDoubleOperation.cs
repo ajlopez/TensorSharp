@@ -12,7 +12,6 @@
         {
         }
 
-
         public override void Calculate(double[] newvalues, double[] leftvalues, double[] rightvalues)
         {
             int l = newvalues.Length;
