@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context.cs" />
     <Compile Include="Nodes\BaseValueNode.cs" />
     <Compile Include="Nodes\BaseNode.cs" />
     <Compile Include="Flow.cs" />
