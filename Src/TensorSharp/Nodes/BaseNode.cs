@@ -1,4 +1,4 @@
-﻿namespace TensorSharp
+﻿namespace TensorSharp.Nodes
 {
     using System;
     using System.Collections.Generic;

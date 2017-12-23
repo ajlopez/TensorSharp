@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseValueNode.cs" />
-    <Compile Include="BaseNode.cs" />
+    <Compile Include="Nodes\BaseValueNode.cs" />
+    <Compile Include="Nodes\BaseNode.cs" />
     <Compile Include="Flow.cs" />
-    <Compile Include="INode.cs" />
+    <Compile Include="Nodes\INode.cs" />
     <Compile Include="Operations\AddIntegerOperation.cs" />
     <Compile Include="Operations\BinaryOperation.cs" />
     <Compile Include="Operations\AddDoubleOperation.cs" />

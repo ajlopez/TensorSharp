@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using TensorSharp.Nodes;
     using TensorSharp.Operations;
 
     public static class Flow
