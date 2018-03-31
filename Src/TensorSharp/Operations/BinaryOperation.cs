@@ -12,6 +12,7 @@
         private INode<T> right;
         private int rank;
         private int[] shape;
+
         private INode<T> value;
 
         public BinaryOperation(INode<T> left, INode<T> right)
@@ -35,6 +36,9 @@
 
         public override INode<T> Evaluate()
         {
+            if (this.value != null)
+                return this.value;
+
             T[] leftvalues = this.Left.Evaluate().Values;
             T[] rightvalues = this.Right.Evaluate().Values;
             int l = leftvalues.Length;
@@ -42,7 +46,9 @@
 
             this.Calculate(newvalues, leftvalues, rightvalues);
 
-            return new BaseValueNode<T>(this.Shape, newvalues);
+            this.value = new BaseValueNode<T>(this.Shape, newvalues);
+
+            return this.value;
         }
 
         public abstract void Calculate(T[] newvalues, T[] leftvalues, T[] rightvalues);
