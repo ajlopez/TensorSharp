@@ -9,10 +9,12 @@
     {
         private string name;
         private INode<T> node;
+        private int[] shape;
 
-        public PlaceHolderNode(string name)
+        public PlaceHolderNode(string name, int[] shape)
         {
             this.name = name;
+            this.shape = shape;
         }
 
         public string Name { get { return this.name; } }
@@ -21,7 +23,7 @@
         {
             get 
             { 
-                return this.node.Rank; 
+                return this.shape.Length; 
             }
         }
 
@@ -29,7 +31,7 @@
         {
             get 
             { 
-                return this.node.Shape; 
+                return this.shape; 
             }
         }
 
@@ -53,6 +55,14 @@
 
         public bool ApplyContext(Context context)
         {
+            INode<T> newnode = context.GetNode<T>(this.name);
+
+            if (newnode == null)
+                throw new InvalidOperationException(String.Format("Unknown placeholder '{0}'", this.name));
+
+            if (!newnode.Shape.SequenceEqual(this.shape))
+                throw new InvalidOperationException(String.Format("Invalid shape for placeholder '{0}'", this.name));
+ 
             this.node = context.GetNode<T>(this.name);
 
             return true;
