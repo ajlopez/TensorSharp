@@ -13,8 +13,6 @@
         private int rank;
         private int[] shape;
 
-        private INode<T> value;
-
         public BinaryOperation(INode<T> left, INode<T> right)
         {
             if (!left.Shape.SequenceEqual(right.Shape))
@@ -34,11 +32,8 @@
 
         public INode<T> Right { get { return this.right; } }
 
-        public override INode<T> Evaluate()
+        public override INode<T> EvaluateValue()
         {
-            if (this.value != null)
-                return this.value;
-
             T[] leftvalues = this.Left.Evaluate().Values;
             T[] rightvalues = this.Right.Evaluate().Values;
             int l = leftvalues.Length;
@@ -46,11 +41,22 @@
 
             this.Calculate(newvalues, leftvalues, rightvalues);
 
-            this.value = new BaseValueNode<T>(this.Shape, newvalues);
-
-            return this.value;
+            return new BaseValueNode<T>(this.Shape, newvalues);
         }
 
         public abstract void Calculate(T[] newvalues, T[] leftvalues, T[] rightvalues);
+
+        public override bool ApplyContext(Context context)
+        {
+            var lapp = this.left.ApplyContext(context);
+            var rapp = this.right.ApplyContext(context);
+
+            var app = lapp || rapp;
+
+            if (app)
+                this.Value = null;
+
+            return app;
+        }
     }
 }

@@ -40,5 +40,10 @@
 
             return this.values[offset];
         }
+
+        public bool ApplyContext(Context context)
+        {
+            return false;
+        }
     }
 }

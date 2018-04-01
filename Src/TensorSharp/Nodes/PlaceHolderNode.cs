@@ -51,9 +51,11 @@
             return this.node.Evaluate();
         }
 
-        public void ApplyContext(Context context)
+        public bool ApplyContext(Context context)
         {
             this.node = context.GetNode<T>(this.name);
+
+            return true;
         }
     }
 }

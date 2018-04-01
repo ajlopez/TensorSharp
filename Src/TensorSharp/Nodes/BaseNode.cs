@@ -24,6 +24,18 @@
 
         public abstract int[] Shape { get; }
 
+        public INode<T> Value
+        {
+            get
+            {
+                return this.value;
+            }
+            set
+            {
+                this.value = value;
+            }
+        }
+
         public T GetValue(params int[] coordinates)
         {
             if (this.value == null)
@@ -32,6 +44,16 @@
             return this.value.GetValue(coordinates);
         }
 
-        public abstract INode<T> Evaluate();
+        public INode<T> Evaluate()
+        {
+            if (this.value == null)
+                this.value = this.EvaluateValue();
+
+            return this.value;
+        }
+
+        public abstract bool ApplyContext(Context context);
+
+        public abstract INode<T> EvaluateValue();
     }
 }

@@ -10,8 +10,6 @@
     {
         private INode<T> node;
 
-        private INode<T> value;
-
         public UnaryOperation(INode<T> node)
         {
             this.node = node;
@@ -23,20 +21,25 @@
 
         public INode<T> Node { get { return this.node; } }
 
-        public override INode<T> Evaluate()
+        public override INode<T> EvaluateValue()
         {
-            if (this.value != null)
-                return this.value;
-
             T[] values = this.Node.Evaluate().Values;
             int l = values.Length;
             T[] newvalues = new T[l];
 
             this.Calculate(newvalues, values);
 
-            this.value = new BaseValueNode<T>(this.Shape, newvalues);
+            return new BaseValueNode<T>(this.Shape, newvalues);
+        }
 
-            return this.value;
+        public override bool ApplyContext(Context context)
+        {
+            var app = this.node.ApplyContext(context);
+
+            if (app)
+                this.Value = null;
+
+            return app;
         }
 
         public abstract void Calculate(T[] newvalues, T[] values);

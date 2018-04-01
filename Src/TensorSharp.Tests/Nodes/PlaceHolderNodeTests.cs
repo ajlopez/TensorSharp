@@ -20,8 +20,7 @@
 
             context.SetNode("answer", value);
 
-            node.ApplyContext(context);
-
+            Assert.IsTrue(node.ApplyContext(context));
             Assert.AreEqual(42, node.GetValue(0));
         }
     }

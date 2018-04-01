@@ -16,5 +16,7 @@
         T GetValue(params int[] coordinates);
 
         INode<T> Evaluate();
+
+        bool ApplyContext(Context context);
     }
 }
