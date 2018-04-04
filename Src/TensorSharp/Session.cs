@@ -8,9 +8,12 @@
 
     public class Session
     {
-        public INode<T> Run<T>(INode<T> node)
+        public INode<T> Run<T>(INode<T> node, Context context)
         {
-            return node;
+            if (context != null)
+                node.ApplyContext(context);
+
+            return node.Evaluate();
         }
     }
 }

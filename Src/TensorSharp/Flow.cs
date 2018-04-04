@@ -24,6 +24,11 @@
             return new BaseValueNode<T>(CalculateShape(values), ToFlatArray(values));
         }
 
+        public static INode<T> PlaceHolder<T>(string name, int[] shape)
+        {
+            return new PlaceHolderNode<T>(name, shape);
+        }
+
         public static INode<int> Negate(INode<int> node)
         {
             return new NegateIntegerOperation(node);
