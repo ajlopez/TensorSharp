@@ -21,7 +21,7 @@
         public void SessionRunPlaceHolderContextWithConstant()
         {
             var constant = Flow.Constant(42);
-            var placeholder = Flow.PlaceHolder<int>("answer", new int[1]);
+            var placeholder = Flow.PlaceHolder<int>("answer", new int[0]);
 
             Context context = new Context();
             context.SetNode("answer", constant);
