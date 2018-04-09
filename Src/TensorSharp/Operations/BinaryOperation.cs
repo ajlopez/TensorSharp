@@ -54,7 +54,7 @@
             var app = lapp || rapp;
 
             if (app)
-                this.Value = null;
+                this.ClearValue();
 
             return app;
         }

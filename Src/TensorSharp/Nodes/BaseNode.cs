@@ -30,10 +30,11 @@
             {
                 return this.value;
             }
-            set
-            {
-                this.value = value;
-            }
+        }
+
+        protected void ClearValue()
+        {
+            this.value = null;
         }
 
         public T GetValue(params int[] coordinates)

@@ -37,7 +37,7 @@
             var app = this.node.ApplyContext(context);
 
             if (app)
-                this.Value = null;
+                this.ClearValue();
 
             return app;
         }
