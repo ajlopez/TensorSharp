@@ -6,7 +6,7 @@
     using System.Text;
     using TensorSharp.Nodes;
 
-    public abstract class BinaryOperation<T> : BaseNode<T>
+    public abstract class BinaryOperation<T, R> : BaseNode<R>
     {
         private INode<T> left;
         private INode<T> right;
@@ -32,19 +32,19 @@
 
         public INode<T> Right { get { return this.right; } }
 
-        public override INode<T> EvaluateValue()
+        public override INode<R> EvaluateValue()
         {
             T[] leftvalues = this.Left.Evaluate().Values;
             T[] rightvalues = this.Right.Evaluate().Values;
             int l = leftvalues.Length;
-            T[] newvalues = new T[l];
+            R[] newvalues = new R[l];
 
             this.Calculate(newvalues, leftvalues, rightvalues);
 
-            return new BaseValueNode<T>(this.Shape, newvalues);
+            return new BaseValueNode<R>(this.Shape, newvalues);
         }
 
-        public abstract void Calculate(T[] newvalues, T[] leftvalues, T[] rightvalues);
+        public abstract void Calculate(R[] newvalues, T[] leftvalues, T[] rightvalues);
 
         public override bool ApplyContext(Context context)
         {
@@ -57,6 +57,14 @@
                 this.ClearValue();
 
             return app;
+        }
+    }
+
+    public abstract class BinaryOperation<T> : BinaryOperation<T, T>
+    {
+        public BinaryOperation(INode<T> left, INode<T> right)
+            : base(left, right)
+        {
         }
     }
 }
