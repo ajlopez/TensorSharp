@@ -11,6 +11,10 @@ The code was written using TDD (Test-Driven Development).
 ## References
 
 - [TensorFlow](https://www.tensorflow.org/)
+- [Datasets](https://www.tensorflow.org/programmers_guide/datasets)
+- [Datasets Quick Start](https://www.tensorflow.org/get_started/datasets_quickstart)
+- [TensorFlow Dataset API tutorial – build high performance data pipelines](http://adventuresinmachinelearning.com/tensorflow-dataset-tutorial/)
+- [Convolutional Neural Networks Tutorial in TensorFlow](http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/)
 
 ## Other References
 
