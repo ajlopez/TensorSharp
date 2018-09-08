@@ -1,12 +1,8 @@
 ﻿namespace TensorSharp.Operations
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using TensorSharp.Nodes;
 
-    public abstract class UnaryOperation<T> : BaseNode<T>
+    public abstract class UnaryOperation<T, R> : BaseNode<R>
     {
         private INode<T> node;
 
@@ -21,15 +17,15 @@
 
         public INode<T> Node { get { return this.node; } }
 
-        public override INode<T> EvaluateValue()
+        public override INode<R> EvaluateValue()
         {
             T[] values = this.Node.Evaluate().Values;
             int l = values.Length;
-            T[] newvalues = new T[l];
+            R[] newvalues = new R[l];
 
             this.Calculate(newvalues, values);
 
-            return new BaseValueNode<T>(this.Shape, newvalues);
+            return new BaseValueNode<R>(this.Shape, newvalues);
         }
 
         public override bool ApplyContext(Context context)
@@ -42,6 +38,14 @@
             return app;
         }
 
-        public abstract void Calculate(T[] newvalues, T[] values);
+        public abstract void Calculate(R[] newvalues, T[] values);
+    }
+
+    public abstract class UnaryOperation<T> : UnaryOperation<T, T>
+    {
+        public UnaryOperation(INode<T> node)
+            : base(node)
+        {
+        }
     }
 }
