@@ -4,7 +4,7 @@
 
     public abstract class UnaryOperation<T, R> : BaseNode<R>
     {
-        private INode<T> node;
+        private readonly INode<T> node;
 
         public UnaryOperation(INode<T> node)
         {

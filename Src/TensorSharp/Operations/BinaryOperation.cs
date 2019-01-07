@@ -1,17 +1,15 @@
 ﻿namespace TensorSharp.Operations
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using TensorSharp.Nodes;
 
     public abstract class BinaryOperation<T, R> : BaseNode<R>
     {
-        private INode<T> left;
-        private INode<T> right;
-        private int rank;
-        private int[] shape;
+        private readonly INode<T> left;
+        private readonly INode<T> right;
+        private readonly int rank;
+        private readonly int[] shape;
 
         public BinaryOperation(INode<T> left, INode<T> right)
         {

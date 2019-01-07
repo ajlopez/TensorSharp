@@ -1,9 +1,5 @@
 ﻿namespace TensorSharp.Operations
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using TensorSharp.Nodes;
 
     public class NegateIntegerOperation : UnaryOperation<int>
